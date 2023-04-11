@@ -5,7 +5,7 @@ export default function FooterComponent() {
   return (
     <Footer container={true}>
       <Footer.Copyright
-        href="#"
+        className="py-3"
         by="VANLIFE™"
         year={2022}
       />
