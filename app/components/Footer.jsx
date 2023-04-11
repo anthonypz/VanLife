@@ -13,8 +13,10 @@ export default function FooterComponent() {
         <Footer.Link>
           <Link to="/about">About</Link>
         </Footer.Link>
-        <Footer.Link href="#">Project Source</Footer.Link>
-        <Footer.Link href="#">My Github</Footer.Link>
+        <Footer.Link href="https://github.com/anthonypz/vanLife">
+          Project Source
+        </Footer.Link>
+        <Footer.Link href="https://github.com/anthonypz">My Github</Footer.Link>
       </Footer.LinkGroup>
     </Footer>
   )
