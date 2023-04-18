@@ -6,3 +6,11 @@ export type { Van }
 export async function getAllVans() {
   return prisma.van.findMany()
 }
+
+export async function getVan(id: string) {
+  return prisma.van.findUnique({
+    where: {
+      id,
+    },
+  })
+}
