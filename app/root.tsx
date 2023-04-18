@@ -9,13 +9,19 @@ import {
 import Header from "~/components/Header"
 import Footer from "~/components/Footer"
 import stylesheet from "~/tailwind.css"
-import type { LinksFunction } from "@remix-run/node"
+import type { LinksFunction, LoaderFunction } from "@remix-run/node"
+import { rootAuthLoader } from "@clerk/remix/ssr.server"
+import { ClerkApp, ClerkCatchBoundary } from "@clerk/remix"
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ]
 
-export default function App() {
+export const loader: LoaderFunction = (args) => rootAuthLoader(args)
+
+export const CatchBoundary = ClerkCatchBoundary()
+
+function App() {
   return (
     <html lang="en">
       <head>
@@ -40,3 +46,5 @@ export default function App() {
     </html>
   )
 }
+
+export default ClerkApp(App)
