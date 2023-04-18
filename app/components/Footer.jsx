@@ -11,12 +11,14 @@ export default function FooterComponent() {
       />
       <Footer.LinkGroup className="gap-2">
         {/* <Footer.Link> */}
-        <Link
-          className="hover:underline"
-          to="/about"
-        >
-          About
-        </Link>
+        <li className="last:mr-0 md:mr-6">
+          <Link
+            className="hover:underline"
+            to="/about"
+          >
+            About
+          </Link>
+        </li>
         {/* </Footer.Link> */}
         <Footer.Link href="https://github.com/anthonypz/vanLife">
           Project Source
