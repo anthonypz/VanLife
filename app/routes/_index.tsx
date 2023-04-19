@@ -1,6 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/react"
 import { Link } from "react-router-dom"
-import homeHero from "~/assets/images/home-hero.png"
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: "Van Life" }]
@@ -8,10 +7,7 @@ export const meta: V2_MetaFunction = () => {
 
 export default function Index() {
   return (
-    <section
-      style={{ backgroundImage: `url(${homeHero})` }}
-      className="bg-center bg-cover bg-no-repeat bg-gray-200 bg-blend-multiply"
-    >
+    <section className="bg-center bg-[url('https://res.cloudinary.com/dyt5tdxun/image/upload/f_auto,q_auto/v1681872321/home-hero_qnsylh.png')] bg-cover bg-no-repeat bg-gray-200 bg-blend-multiply">
       <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
           You got the travel plans, we got the travel vans.

@@ -1,12 +1,11 @@
 import { Link } from "@remix-run/react"
-import aboutHeroImage from "~/assets/images/about-hero.png"
 
 export default function Index() {
   return (
     <>
       <section className="pt-8 px-4 mx-auto max-w-screen-lg lg:pt-16">
         <img
-          src={aboutHeroImage}
+          src="https://res.cloudinary.com/dyt5tdxun/image/upload/f_auto,q_auto/v1681872320/about-hero_u972aw.png"
           className="rounded"
           alt="man camping in his van"
         />
