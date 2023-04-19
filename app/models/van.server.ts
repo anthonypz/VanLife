@@ -14,3 +14,11 @@ export async function getVan(id: string) {
     },
   })
 }
+
+export async function getHostVans(id: string) {
+  return prisma.van.findMany({
+    where: {
+      hostId: id,
+    },
+  })
+}
