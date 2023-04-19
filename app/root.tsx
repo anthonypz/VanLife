@@ -15,6 +15,7 @@ import { ClerkApp, ClerkCatchBoundary } from "@clerk/remix"
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
 ]
 
 export const loader: LoaderFunction = (args) => rootAuthLoader(args)
