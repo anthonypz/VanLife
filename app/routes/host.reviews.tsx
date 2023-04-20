@@ -20,11 +20,11 @@ export default function Reviews() {
   ]
 
   return (
-    <section className="host-reviews">
-      <div className="top-text">
-        <h2>Your reviews</h2>
-        <p>
-          Last <span>30 days</span>
+    <section className="">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold my-4">Your reviews</h2>
+        <p className="text-neutral-700">
+          Last <span className="underline font-bold">30 days</span>
         </p>
       </div>
       <React.Fragment>
@@ -34,11 +34,11 @@ export default function Reviews() {
           <Rating.Star />
           <Rating.Star />
           <Rating.Star />
-          <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+          <p className="ml-2 text-base font-medium text-gray-500 dark:text-gray-400">
             5 out of 5
           </p>
         </Rating>
-        <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="text-sm font-medium text-gray-500 dark:text-gray-400 py-2">
           2 ratings
         </p>
         <Rating.Advanced percentFilled={100}>5 star</Rating.Advanced>
@@ -47,20 +47,22 @@ export default function Reviews() {
         <Rating.Advanced percentFilled={0}>2 star</Rating.Advanced>
         <Rating.Advanced percentFilled={0}>1 star</Rating.Advanced>
       </React.Fragment>
-      <h3>Reviews ({reviewsData.length})</h3>
+      <h3 className="text-xl font-bold mt-12">
+        Reviews ({reviewsData.length})
+      </h3>
       {reviewsData.map((review) => (
         <div key={review.id}>
-          <div className="review">
+          <div className="my-6">
             <Rating>
               {[...Array(review.rating)].map((_, i) => (
                 <Rating.Star key={i} />
               ))}
             </Rating>
-            <div className="info">
-              <p className="name">{review.name}</p>
-              <p className="date">{review.date}</p>
+            <div className="flex my-3">
+              <p className="mr-2 font-semibold ">{review.name}</p>
+              <p className="text-neutral-500">{review.date}</p>
             </div>
-            <p>{review.text}</p>
+            <p className="text-neutral-700">{review.text}</p>
           </div>
           <hr />
         </div>
