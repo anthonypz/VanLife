@@ -8,30 +8,30 @@ export default function Income() {
   ]
   return (
     <section className="host-income">
-      <h1>Income</h1>
-      <p>
-        Last <span>30 days</span>
+      <h1 className="text-3xl font-bold my-4">Income</h1>
+      <p className="text-neutral-700">
+        Last <span className="underline font-bold">30 days</span>
       </p>
-      <h2>$2,260</h2>
+      <h2 className="text-4xl font-black my-6">$2,260</h2>
       <img
-        className="graph"
+        className="w-full max-w-lg"
         src={incomeGraph}
         alt="Income graph"
       />
-      <div className="info-header">
-        <h3>Your transactions (3)</h3>
-        <p>
-          Last <span>30 days</span>
+      <div className="mt-8">
+        <h3 className="text-2xl font-bold my-4">Your transactions (3)</h3>
+        <p className="text-neutral-700">
+          Last <span className="underline font-bold">30 days</span>
         </p>
       </div>
-      <div className="transactions">
+      <div className="mt-4">
         {transactionsData.map((item) => (
           <div
             key={item.id}
-            className="transaction"
+            className="flex items-center justify-between bg-white mb-8 p-8 rounded border border-orange-200"
           >
-            <h3>${item.amount}</h3>
-            <p>{item.date}</p>
+            <h3 className="text-4xl font-semibold">${item.amount}</h3>
+            <p className="text-xl font-medium text-neutral-700">{item.date}</p>
           </div>
         ))}
       </div>
