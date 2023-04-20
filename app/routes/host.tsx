@@ -8,12 +8,13 @@ export default function HostLayout() {
   }
 
   return (
-    <>
-      <nav className="host-nav">
+    <div className="container mx-auto px-2 sm:px-6 py-8">
+      <nav className="flex mb-8 flex-wrap">
         <NavLink
           to="."
           end
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
+          className="py-2 px-5"
         >
           Dashboard
         </NavLink>
@@ -21,6 +22,7 @@ export default function HostLayout() {
         <NavLink
           to="income"
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
+          className="py-2 px-5"
         >
           Income
         </NavLink>
@@ -28,6 +30,7 @@ export default function HostLayout() {
         <NavLink
           to="vans"
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
+          className="py-2 px-5"
         >
           Vans
         </NavLink>
@@ -35,11 +38,12 @@ export default function HostLayout() {
         <NavLink
           to="reviews"
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
+          className="py-2 px-5"
         >
           Reviews
         </NavLink>
       </nav>
       <Outlet />
-    </>
+    </div>
   )
 }
