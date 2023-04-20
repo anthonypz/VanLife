@@ -1,8 +1,6 @@
 import React from "react"
 import { Link, useSearchParams, useLoaderData, Await } from "@remix-run/react"
-
 import { defer } from "@remix-run/node"
-
 import { getAllVans } from "~/models/van.server"
 import type { Van } from "~/models/van.server"
 
@@ -61,27 +59,25 @@ export default function Vans() {
         </Link>
       </div>
     ))
+
     return (
       <>
-        <div className="van-list-filter-buttons">
+        <div className="flex flex-wrap gap-1">
           <button
             onClick={() => handleFilterChange("type", "simple")}
-            className={`van-type simple
-                        ${typeFilter === "simple" ? "selected" : ""}`}
+            className="py-2 px-7 rounded bg-[#ffead0] text-gray-700 mr-5 hover:bg-[#e17654] hover:text-[#ffead0] focus:bg-[#e17654] focus:text-[#ffead0] font-medium"
           >
             Simple
           </button>
           <button
             onClick={() => handleFilterChange("type", "luxury")}
-            className={`van-type luxury
-                        ${typeFilter === "luxury" ? "selected" : ""}`}
+            className="py-2 px-7 rounded bg-[#ffead0] text-gray-700 mr-5 hover:bg-[#161616] hover:text-[#ffead0] focus:bg-[#161616] focus:text-[#ffead0] font-medium"
           >
             Luxury
           </button>
           <button
             onClick={() => handleFilterChange("type", "rugged")}
-            className={`van-type rugged
-                        ${typeFilter === "rugged" ? "selected" : ""}`}
+            className="py-2 px-7 rounded bg-[#ffead0] text-gray-700 mr-5 hover:bg-[#115e59] hover:text-[#ffead0] focus:bg-[#115e59] focus:text-[#ffead0] font-medium"
           >
             Rugged
           </button>
@@ -89,20 +85,24 @@ export default function Vans() {
           {typeFilter ? (
             <button
               onClick={() => handleFilterChange("type", null)}
-              className="van-type clear-filters"
+              className="py-2 px-7 pl-0 rounded text-gray-600 underline mr-5 font-medium"
             >
               Clear filter
             </button>
           ) : null}
         </div>
-        <div className="van-list">{vanElements}</div>
+        <div className="mt-12 grid grid-cols-2 justify-items-center gap-8">
+          {vanElements}
+        </div>
       </>
     )
   }
 
   return (
-    <div className="van-list-container">
-      <h1>Explore our van options</h1>
+    <div className="container mx-auto px-2 sm:px-6 py-8">
+      <h1 className="text-3xl text-gray-900 font-bold my-5">
+        Explore our van options
+      </h1>
       <React.Suspense fallback={<h2>Loading vans...</h2>}>
         <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
       </React.Suspense>
