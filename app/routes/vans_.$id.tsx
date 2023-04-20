@@ -45,7 +45,7 @@ export default function VanDetail() {
           </span>
           /day
         </p>
-        <p className="mt-4">{van.description}</p>
+        <p className="mt-4 text-neutral-700">{van.description}</p>
         <button className="text-white bg-[#ff8c38] text-lg font-semibold w-full rounded py-2 mt-3">
           Rent this van
         </button>
