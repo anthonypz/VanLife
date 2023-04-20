@@ -42,10 +42,30 @@ export default function Reviews() {
           2 ratings
         </p>
         <Rating.Advanced percentFilled={100}>5 star</Rating.Advanced>
-        <Rating.Advanced percentFilled={0}>4 star</Rating.Advanced>
-        <Rating.Advanced percentFilled={0}>3 star</Rating.Advanced>
-        <Rating.Advanced percentFilled={0}>2 star</Rating.Advanced>
-        <Rating.Advanced percentFilled={0}>1 star</Rating.Advanced>
+        <Rating.Advanced
+          percentFilled={0}
+          className="mt-1"
+        >
+          4 star
+        </Rating.Advanced>
+        <Rating.Advanced
+          percentFilled={0}
+          className="mt-1"
+        >
+          3 star
+        </Rating.Advanced>
+        <Rating.Advanced
+          percentFilled={0}
+          className="mt-1"
+        >
+          2 star
+        </Rating.Advanced>
+        <Rating.Advanced
+          percentFilled={0}
+          className="mt-1 ml-[2px]"
+        >
+          1 star
+        </Rating.Advanced>
       </React.Fragment>
       <h3 className="text-xl font-bold mt-12">
         Reviews ({reviewsData.length})

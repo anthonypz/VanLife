@@ -14,7 +14,7 @@ export default function HostLayout() {
           to="."
           end
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
-          className="py-2 px-5"
+          className="-ml-5 py-2 px-5 text-neutral-700 font-medium"
         >
           Dashboard
         </NavLink>
@@ -22,7 +22,7 @@ export default function HostLayout() {
         <NavLink
           to="income"
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
-          className="py-2 px-5"
+          className="py-2 px-5 text-neutral-700 font-medium"
         >
           Income
         </NavLink>
@@ -30,7 +30,7 @@ export default function HostLayout() {
         <NavLink
           to="vans"
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
-          className="py-2 px-5"
+          className="py-2 px-5 text-neutral-700 font-medium"
         >
           Vans
         </NavLink>
@@ -38,7 +38,7 @@ export default function HostLayout() {
         <NavLink
           to="reviews"
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
-          className="py-2 px-5"
+          className="py-2 px-5 text-neutral-700 font-medium"
         >
           Reviews
         </NavLink>
