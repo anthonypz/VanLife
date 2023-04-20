@@ -26,18 +26,19 @@ export default function HostVans() {
       <Link
         to={van.id}
         key={van.id}
-        className="host-van-link-wrapper"
+        className=""
       >
         <div
-          className="host-van-single"
+          className="flex items-center bg-white mb-4 py-4 px-6 border border-orange-200 rounded"
           key={van.id}
         >
           <img
             src={van.imageUrl}
             alt={`${van.name}`}
+            className="rounded h-20 mr-4"
           />
           <div className="host-van-info">
-            <h3>{van.name}</h3>
+            <h3 className="text-xl font-semibold my-2">{van.name}</h3>
             <p>${van.price}/day</p>
           </div>
         </div>
@@ -52,7 +53,7 @@ export default function HostVans() {
 
   return (
     <section>
-      <h1 className="host-vans-title">Your listed vans</h1>
+      <h1 className="font-bold text-3xl mb-8">Your listed vans</h1>
       <React.Suspense fallback={<h2>Loading vans...</h2>}>
         <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
       </React.Suspense>

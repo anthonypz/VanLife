@@ -4,18 +4,28 @@ export default function HostVanInfo() {
   const { currentVan } = useVanDetails()
 
   return (
-    <section className="host-van-detail-info">
-      <h4>
-        Name: <span>{currentVan.name}</span>
+    <section className="">
+      <h4 className="font-bold text-sm">
+        Name:{" "}
+        <span className="font-normal text-neutral-700 text-sm">
+          {currentVan.name}
+        </span>
       </h4>
-      <h4>
-        Category: <span>{currentVan.type}</span>
+      <h4 className="font-bold text-sm mt-3">
+        Category:{" "}
+        <span className="font-medium text-neutral-600 text-sm">
+          {currentVan.type}
+        </span>
       </h4>
-      <h4>
-        Description: <span>{currentVan.description}</span>
+      <h4 className="font-bold text-sm mt-3">
+        Description:{" "}
+        <span className="font-medium text-neutral-600 text-sm">
+          {currentVan.description}
+        </span>
       </h4>
-      <h4>
-        Visibility: <span>Public</span>
+      <h4 className="font-bold text-sm mt-3">
+        Visibility:{" "}
+        <span className="font-medium text-neutral-600 text-sm">Public</span>
       </h4>
     </section>
   )
