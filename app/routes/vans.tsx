@@ -35,7 +35,7 @@ export default function Vans() {
     const vanElements = displayedVans.map((van) => (
       <div
         key={van.id}
-        className="van-tile"
+        className=""
       >
         <Link
           to={van.id}
@@ -47,15 +47,20 @@ export default function Vans() {
           <img
             src={van.imageUrl}
             alt="travel van"
+            className="rounded"
           />
-          <div className="van-info">
-            <h3>{van.name}</h3>
-            <p>
+          <div className="mb-3">
+            <h3 className="font-bold my-2 text-lg text-gray-900">{van.name}</h3>
+            <p className="text-base text-gray-900">
               ${van.price}
               <span>/day</span>
             </p>
           </div>
-          <i className={`van-type ${van.type} selected`}>{van.type}</i>
+          <button
+            className={`py-2 px-7 rounded mr-5 font-medium van-type ${van.type}`}
+          >
+            {van.type}
+          </button>
         </Link>
       </div>
     ))

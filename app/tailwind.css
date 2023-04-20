@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.van-type.simple,
+.van-type.simple {
+  background-color: #e17654;
+  color: #ffead0;
+}
+
+.van-type.rugged,
+.van-type.rugged {
+  background-color: #115e59;
+  color: #ffead0;
+}
+
+.van-type.luxury,
+.van-type.luxury {
+  background-color: #161616;
+  color: #ffead0;
+}
+
+.van-type.selected {
+  color: #ffead0;
+}

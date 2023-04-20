@@ -18,27 +18,37 @@ export default function VanDetail() {
   const type = location.state?.type || "all"
 
   return (
-    <div className="van-detail-container">
+    <div className="container mx-auto max-w-4xl px-2 sm:px-6 py-8">
       <Link
         to={`..${search}`}
         relative="path"
-        className="back-button"
+        className=""
       >
-        &larr; <span>Back to {type} vans</span>
+        &larr; <span className="underline text-lg">Back to {type} vans</span>
       </Link>
 
-      <div className="van-detail">
+      <div className="mt-4 container mx-auto">
         <img
           src={van.imageUrl}
           alt="travel van"
+          className="rounded"
         />
-        <i className={`van-type ${van.type} selected`}>{van.type}</i>
-        <h2>{van.name}</h2>
-        <p className="van-price">
-          <span>${van.price}</span>/day
+        <button
+          className={`py-2 px-7 rounded mr-5 font-medium mt-2 van-type ${van.type} selected`}
+        >
+          {van.type}
+        </button>
+        <h2 className="font-bold my-5 text-3xl text-gray-900">{van.name}</h2>
+        <p className="text-lg">
+          <span className="font-bold my-3 text-2xl text-gray-900">
+            ${van.price}
+          </span>
+          /day
         </p>
-        <p>{van.description}</p>
-        <button className="link-button">Rent this van</button>
+        <p className="mt-4">{van.description}</p>
+        <button className="text-white bg-[#ff8c38] text-lg font-semibold w-full rounded py-2 mt-3">
+          Rent this van
+        </button>
       </div>
     </div>
   )
