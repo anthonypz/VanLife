@@ -25,18 +25,24 @@ export default function Dashboard() {
   function renderVanElements(vans: VanElements[]) {
     const hostVansEls = vans.map((van) => (
       <div
-        className="host-van-single"
+        className="flex items-center bg-white mb-4 py-4 px-6 border border-orange-200 rounded"
         key={van.id}
       >
         <img
           src={van.imageUrl}
           alt={`${van.name}`}
+          className="rounded h-20 mr-4"
         />
-        <div className="host-van-info">
-          <h3>{van.name}</h3>
-          <p>${van.price}/day</p>
+        <div className="mr-auto">
+          <h3 className="text-xl font-semibold my-2">{van.name}</h3>
+          <p className="">${van.price}/day</p>
         </div>
-        <Link to={`vans/${van.id}`}>View</Link>
+        <Link
+          to={`vans/${van.id}`}
+          className="p-2"
+        >
+          View
+        </Link>
       </div>
     ))
 
@@ -49,37 +55,55 @@ export default function Dashboard() {
 
   return (
     <>
-      <section className="host-dashboard-earnings">
-        <div className="info">
-          <h1>Welcome!</h1>
-          <p>
-            Income last <span>30 days</span>
+      <section className="flex justify-between items-center flex-wrap p-8 bg-[#ffead0]">
+        <div className="">
+          <h1 className="text-4xl font-bold">Welcome!</h1>
+          <p className="text-neutral-700 my-4">
+            Income last{" "}
+            <span className="text-neutral-700 font-bold underline">
+              30 days
+            </span>
           </p>
-          <h2>$2,260</h2>
+          <h2 className="text-4xl font-black">$2,260</h2>
         </div>
-        <Link to="income">Details</Link>
+        <Link
+          to="income"
+          className="p-2 hover:underline"
+        >
+          Details
+        </Link>
       </section>
-      <section className="host-dashboard-reviews">
-        <h2>Review score</h2>
-        <Rating>
-          <Rating.Star />
-          <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+      <section className="flex flex-wrap items-center p-8 bg-[#ffddb2]">
+        <h2 className="text-2xl font-bold">Review score</h2>
+        <Rating className="mr-auto">
+          <Rating.Star className="ml-3 w-8 h-8" />
+          <p className="ml-2 text-xl font-bold text-gray-900 dark:text-white">
             5
           </p>
           <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
           <Link
             to="reviews"
-            className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"
+            className="text-base font-medium text-gray-900 underline hover:no-underline dark:text-white"
           >
             2 reviews
           </Link>
         </Rating>
-        <Link to="reviews">Details</Link>
+        <Link
+          to="reviews"
+          className="p-2 hover:underline"
+        >
+          Details
+        </Link>
       </section>
-      <section className="host-dashboard-vans">
-        <div className="top">
-          <h2>Your listed vans</h2>
-          <Link to="vans">View all</Link>
+      <section className="p-8">
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold my-4">Your listed vans</h2>
+          <Link
+            to="vans"
+            className="p-2 hover:underline"
+          >
+            View all
+          </Link>
         </div>
         <React.Suspense fallback={<h3>Loading...</h3>}>
           <Await resolve={loaderData.vans}>{renderVanElements}</Await>
