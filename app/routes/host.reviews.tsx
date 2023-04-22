@@ -1,15 +1,11 @@
 import React from "react"
 import { Rating } from "flowbite-react"
-import { redirect } from "@remix-run/node"
 import type { LoaderArgs } from "@remix-run/node"
-import { getAuth } from "@clerk/remix/ssr.server"
+import { requireAuth } from "~/utils.server"
 
 export async function loader(args: LoaderArgs) {
-  const { userId } = await getAuth(args)
-
-  if (!userId) {
-    throw redirect("/sign-in")
-  }
+  await requireAuth(args)
+  return {}
 }
 
 export default function Reviews() {

@@ -5,21 +5,17 @@ import {
   useLoaderData,
   useOutletContext,
 } from "@remix-run/react"
-import { redirect } from "@remix-run/node"
 import type { LoaderArgs } from "@remix-run/node"
 import type { Van } from "~/models/van.server"
 import { getVan } from "~/models/van.server"
-import { getAuth } from "@clerk/remix/ssr.server"
 import invariant from "tiny-invariant"
+import { requireAuth } from "~/utils.server"
 
 export async function loader(args: LoaderArgs) {
-  const { userId } = await getAuth(args)
+  await requireAuth(args)
   invariant(args.params.id, `params.id is required`)
   const id = args.params.id
 
-  if (!userId) {
-    throw redirect("/sign-in")
-  }
   return await getVan(id)
 }
 

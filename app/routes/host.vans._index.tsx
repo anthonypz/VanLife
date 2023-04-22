@@ -1,17 +1,13 @@
 import React from "react"
 import { Link, useLoaderData, Await } from "@remix-run/react"
-import { defer, redirect } from "@remix-run/node"
+import { defer } from "@remix-run/node"
 import type { LoaderArgs } from "@remix-run/node"
 import type { Van } from "~/models/van.server"
 import { getHostVans } from "~/models/van.server"
-import { getAuth } from "@clerk/remix/ssr.server"
+import { requireAuth } from "~/utils.server"
 
 export async function loader(args: LoaderArgs) {
-  const { userId } = await getAuth(args)
-
-  if (!userId) {
-    throw redirect("/sign-in")
-  }
+  const userId = await requireAuth(args)
 
   return defer({ vans: getHostVans(userId) })
 }
