@@ -11,7 +11,10 @@ export function loader({ request }: LoaderArgs) {
 export default function SignInPage() {
   const path = useLoaderData<typeof loader>()
   return (
-    <div className="flex justify-center items-center py-8 px-6 md:h-screen">
+    <div className="flex flex-col justify-center items-center py-8 px-6 md:h-screen">
+      <h1 className="mb-6 text-xl font-extrabold text-gray-900">
+        Sign in to view your host dashboard.
+      </h1>
       <SignIn
         routing={"path"}
         path={"/sign-in"}
