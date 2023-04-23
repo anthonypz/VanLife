@@ -6,11 +6,14 @@ import type { Van } from "~/models/van.server"
 import { getHostVans } from "~/models/van.server"
 import { Rating } from "flowbite-react"
 import { requireAuth } from "~/utils.server"
+import { createClerkClient } from "@clerk/remix/api.server"
 
 export async function loader(args: LoaderArgs) {
   const userId = await requireAuth(args)
-
-  return defer({ vans: getHostVans(userId) })
+  const { username } = await createClerkClient({
+    apiKey: process.env.CLERK_SECRET_KEY,
+  }).users.getUser(userId)
+  return defer({ vans: getHostVans(userId), username })
 }
 
 type VanElements = Omit<Van, "createdAt" | "updatedAt">
@@ -53,7 +56,12 @@ export default function Dashboard() {
     <>
       <section className="flex justify-between items-center flex-wrap p-8 bg-[#ffead0]">
         <div className="">
-          <h1 className="text-4xl font-bold">Welcome!</h1>
+          <h1 className="text-4xl font-bold">
+            {loaderData.username
+              ? `Welcome, ${loaderData.username}`
+              : "Welcome"}
+            !
+          </h1>
           <p className="text-neutral-700 my-4">
             Income last{" "}
             <span className="text-neutral-700 font-bold underline">
