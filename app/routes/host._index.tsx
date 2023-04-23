@@ -54,7 +54,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <section className="flex justify-between items-center flex-wrap p-8 bg-[#ffead0]">
+      <section className="flex justify-between items-center flex-wrap px-2 py-8 sm:p-8 bg-[#ffead0]">
         <div className="">
           <h1 className="text-4xl font-bold">
             {loaderData.username
@@ -77,7 +77,7 @@ export default function Dashboard() {
           Details
         </Link>
       </section>
-      <section className="flex flex-wrap items-center p-8 bg-[#ffddb2]">
+      <section className="flex flex-wrap items-center px-2 py-8 sm:p-8 bg-[#ffddb2]">
         <h2 className="text-2xl font-bold">Review score</h2>
         <Rating className="mr-auto">
           <Rating.Star className="ml-3 w-8 h-8" />
@@ -99,7 +99,7 @@ export default function Dashboard() {
           Details
         </Link>
       </section>
-      <section className="p-8">
+      <section className="py-8 px-0 sm:p-8">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold my-4">Your listed vans</h2>
           <Link

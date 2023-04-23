@@ -14,7 +14,7 @@ export default function HostLayout() {
           to="."
           end
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
-          className="-ml-5 py-2 px-5 text-neutral-700 font-medium"
+          className="py-2 px-5 text-neutral-700 font-medium"
         >
           Dashboard
         </NavLink>
