@@ -49,15 +49,24 @@ function App() {
 }
 
 export function ErrorBoundary({ error }: { error: unknown }) {
-  if (error instanceof Error) {
-    return (
-      <div className="text-red-400">
-        Oh no, something went wrong!
-        <pre>{error.message}</pre>
-      </div>
-    )
-  }
-  return <div className="text-red-400">Oh no, something went wrong!</div>
+  return (
+    <html>
+      <head>
+        <title>Oh no!</title>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Header />
+        <div className="text-red-400">
+          Oh no, something went wrong!
+          {error instanceof Error ? <pre>{error.message}</pre> : ""}
+        </div>
+        <Scripts />
+        <Footer />
+      </body>
+    </html>
+  )
 }
 
 export default ClerkApp(App)
