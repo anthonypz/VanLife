@@ -22,3 +22,23 @@ export async function getHostVans(id: string) {
     },
   })
 }
+
+export async function createHostVan({
+  name,
+  price,
+  description,
+  imageUrl,
+  type,
+  hostId,
+}: Omit<Van, "createdAt" | "updatedAt" | "id">) {
+  return prisma.van.create({
+    data: {
+      name,
+      price,
+      description,
+      imageUrl,
+      type,
+      hostId,
+    },
+  })
+}
