@@ -35,7 +35,7 @@ export default function Vans() {
     const vanElements = displayedVans.map((van) => (
       <div
         key={van.id}
-        className=""
+        className="bg-cover bg-center"
       >
         <Link
           to={van.id}
@@ -47,7 +47,7 @@ export default function Vans() {
           <img
             src={van.imageUrl}
             alt="travel van"
-            className="rounded"
+            className="rounded h-auto max-w-full"
           />
           <div className="mb-3">
             <h3 className="font-bold my-2 text-lg text-gray-900">{van.name}</h3>
