@@ -6,17 +6,23 @@ import {
   useOutletContext,
 } from "@remix-run/react"
 import type { LoaderArgs } from "@remix-run/node"
+import { redirect } from "@remix-run/node"
 import type { Van } from "~/models/van.server"
 import { getVan } from "~/models/van.server"
 import invariant from "tiny-invariant"
 import { requireAuth } from "~/utils.server"
 
 export async function loader(args: LoaderArgs) {
-  await requireAuth(args)
+  const clerkHostId = await requireAuth(args)
   invariant(args.params.id, `params.id is required`)
   const id = args.params.id
+  const van = await getVan(id)
 
-  return await getVan(id)
+  if (van?.hostId !== clerkHostId) {
+    throw redirect("/host")
+  }
+
+  return van
 }
 
 type VanElement = Omit<Van, "createdAt" | "updatedAt">
