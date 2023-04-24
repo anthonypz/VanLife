@@ -1,9 +1,9 @@
 import { Link, NavLink } from "@remix-run/react"
 import { Navbar } from "flowbite-react"
-import { useAuth, UserButton } from "@clerk/remix"
+import { useUser, UserButton } from "@clerk/remix"
 
 export default function Header() {
-  const { userId } = useAuth()
+  const { isSignedIn } = useUser()
 
   const activeStyles = {
     fontWeight: "bold",
@@ -65,7 +65,7 @@ export default function Header() {
               alt="login icon"
             />
           </Link> */}
-          {userId ? (
+          {isSignedIn ? (
             <div className="md:border-0 md:hover:bg-transparent block py-2 pr-4 pl-3 md:p-0 border-b border-gray-100 hover:bg-gray-50 align-top">
               <UserButton afterSignOutUrl="/" />
             </div>
