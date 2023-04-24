@@ -3,6 +3,7 @@ import { getAuth } from "@clerk/remix/ssr.server"
 import type { LoaderArgs } from "@remix-run/node"
 import { createClerkClient } from "@clerk/remix/api.server"
 
+// returns the Clerk userId
 export async function requireAuth(args: LoaderArgs) {
   const { userId } = await getAuth(args)
   const pathname = new URL(args.request.url).pathname
@@ -13,6 +14,7 @@ export async function requireAuth(args: LoaderArgs) {
   return userId
 }
 
+// returns the Clerk username
 export async function getUsername(userId: string) {
   const { username } = await createClerkClient({
     apiKey: process.env.CLERK_SECRET_KEY,

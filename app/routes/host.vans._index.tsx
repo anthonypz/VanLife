@@ -48,11 +48,31 @@ export default function HostVans() {
   }
 
   return (
-    <section>
+    <section className="flex flex-col">
       <h1 className="font-bold text-3xl mb-8">Your listed vans</h1>
       <React.Suspense fallback={<h2>Loading vans...</h2>}>
         <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
       </React.Suspense>
+      <Link
+        to="/host/new"
+        className="self-end mt-2 text-white bg-[#ff8c38] hover:bg-[#ff8c38]/80 focus:ring-4 focus:outline-none focus:ring-[#ff8c38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  dark:hover:bg-[#ff8c38]/80 dark:focus:ring-[#ff8c38]/40"
+      >
+        Add a van
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6 ml-2 -mr-1"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </Link>
     </section>
   )
 }
