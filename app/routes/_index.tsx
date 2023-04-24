@@ -19,7 +19,7 @@ export default function Index() {
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
           <Link
             to="vans"
-            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-[#ff8c38] hover:bg-[#ff8c38]/80 focus:ring-4 focus:ring-[#ff8c38]/40 dark:focus:ring-[#ff8c38]/40"
           >
             Find your vans
             <svg

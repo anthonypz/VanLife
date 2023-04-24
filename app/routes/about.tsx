@@ -32,7 +32,7 @@ export default function Index() {
             </h2>
             <Link
               to="/vans"
-              className="inline-flex justify-center items-center py-2.5 px-5 text-base font-bold text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              className="inline-flex justify-center items-center py-2.5 px-5 text-base font-bold text-center text-white rounded-lg bg-[#ff8c38] hover:bg-[#ff8c38]/80 focus:ring-4 focus:ring-[#ff8c38]/50 dark:focus:ring-blue-900"
             >
               Explore our vans
               <svg
