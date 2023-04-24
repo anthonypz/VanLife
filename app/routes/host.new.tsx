@@ -33,11 +33,11 @@ export async function action(args: ActionArgs) {
   invariant(typeof name === "string", "name must be a string")
   invariant(typeof price === "string", "price must be a string")
   invariant(typeof description === "string", "description must be a string")
-  // invariant(typeof imageUrl === "string", "imageUrl must be a string")
+  invariant(typeof imageUrl === "string", "imageUrl must be a string")
   invariant(typeof type === "string", "type must be a string")
-  if (typeof imageUrl !== "string") {
+  if (typeof imageUrl !== "string" || imageUrl === "") {
     imageUrl =
-      "https://res.cloudinary.com/dyt5tdxun/image/upload/v1682303542/travelvan_nohmar.jpg"
+      "https://res.cloudinary.com/dyt5tdxun/image/upload/v1682360776/travelvan_uihhpb.jpg"
   }
 
   const errors: ActionData = {
@@ -60,7 +60,7 @@ export async function action(args: ActionArgs) {
     hostId,
   })
 
-  return redirect(`/vans/${van.id}`)
+  return redirect(`/host/vans/${van.id}`)
 }
 
 export default function NewVanPage() {
