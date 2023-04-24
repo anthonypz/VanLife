@@ -1,10 +1,15 @@
 import React from "react"
-import { Form, useActionData } from "@remix-run/react"
+import { Form, Link, useActionData } from "@remix-run/react"
 import { redirect, json } from "@remix-run/node"
-import type { ActionArgs } from "@remix-run/node"
+import type { ActionArgs, LoaderArgs } from "@remix-run/node"
 import { requireAuth } from "~/utils.server"
 import invariant from "tiny-invariant"
 import { createHostVan } from "~/models/van.server"
+
+export async function loader(args: LoaderArgs) {
+  await requireAuth(args)
+  return {}
+}
 
 type ActionData =
   | {
@@ -197,9 +202,15 @@ export default function NewVanPage() {
         </div>
 
         <div className="text-right mt-2">
+          <Link
+            to="/host"
+            className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded text-sm px-5 py-2.5 mr-2 mb-2 "
+          >
+            Cancel
+          </Link>
           <button
             type="submit"
-            className="rounded bg-[#ff8c38] py-2 px-4 text-white hover:bg-[#ff8c38]/80 focus:bg-[#ff8c38] focus:ring-4 focus:ring-[#ff8c38]/40"
+            className="rounded font-medium text-sm bg-[#ff8c38] py-2.5 px-5 mr-2 mb-2 text-white hover:bg-[#ff8c38]/80 focus:bg-[#ff8c38] focus:ring-4 focus:ring-[#ff8c38]/40"
           >
             Create Listing
           </button>
