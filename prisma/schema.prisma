@@ -14,7 +14,7 @@ datasource db {
 model Van {
   id          String @id @default(uuid())
   name        String
-  price       Int
+  price       String
   description String
   imageUrl    String
   type        String
