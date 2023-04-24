@@ -4,6 +4,7 @@ import {
   Outlet,
   useLoaderData,
   useOutletContext,
+  useParams,
 } from "@remix-run/react"
 import type { LoaderArgs } from "@remix-run/node"
 import { redirect } from "@remix-run/node"
@@ -17,6 +18,12 @@ export async function loader(args: LoaderArgs) {
   invariant(args.params.id, `params.id is required`)
   const id = args.params.id
   const van = await getVan(id)
+
+  if (!van) {
+    throw new Response("Not Found", {
+      status: 404,
+    })
+  }
 
   if (van?.hostId !== clerkHostId) {
     throw redirect("/host")
@@ -97,4 +104,14 @@ export default function HostVanDetail() {
 
 export function useVanDetails() {
   return useOutletContext<ContextType>()
+}
+
+export function CatchBoundary() {
+  return (
+    <div>
+      <h2 className="text-2xl font-extrabold my-4">
+        Sorry, we couldn't find that page!
+      </h2>
+    </div>
+  )
 }
