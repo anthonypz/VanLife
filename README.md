@@ -1,62 +1,29 @@
-# Welcome to Remix!
+# VanLife
 
-- [Remix Docs](https://remix.run/docs)
-- [Netlify Functions](https://www.netlify.com/products/functions/)
+A fullstack app for renting travel vans during your next road trip. Discover available vans, Host your own van, or rent a travel van today!
 
-## Netlify Setup
+**Link to project:** http://thevanlife.netlify.app/
 
-1. Install the [Netlify CLI](https://www.netlify.com/products/dev/):
+<img src="https://raw.githubusercontent.com/anthonypz/VanLife/main/docs/screenshots/vanlife-demo.png" alt="project demo" width="550"/>
 
-```sh
-npm i -g netlify-cli
-```
+## How It's Made:
 
-If you have previously installed the Netlify CLI, you should update it to the latest version:
+**Tech used:** TypeScript, Remix, Clerk Auth, Supabase PostgreSQL database, Prisma, TailwindCSS, Flowbite
 
-```sh
-npm i -g netlify-cli@latest
-```
+This project was built using Remix, which is an awesome framework that builds upon React Router. It uses nested routes, behaves like a SPA (single page app), and utilizes Remix's server concepts of 'loaders' and 'actions' to perform data reads and writes. I used Clerk for authentication and Supabase as my database hosting solution. I used Prisma to manage database CRUD operations and migrations. Finally, I used TailwindCSS together with HeroIcons and Flowbite to build out the UI.
 
-2. Sign up and log in to Netlify:
+## Optimizations
 
-```sh
-netlify login
-```
+Remix already uses neat optimization techniques that help your app run smoothly such as parallel data fetching, hydration, deferred data loading for slow data requests, and limiting data loading for parts of the page that have changed via client side routing. In addition to that, I used Cloudinary to serve optimized images, which can lower the amount of data sent over the network and significantly speed up your app.
 
-3. Create a new site:
+## Lessons Learned:
 
-```sh
-netlify init
-```
+I've learned a whole lot about how to build client-side nested routes (it's awesome), authentication (it can get complicated), data modeling using Prisma, and many of the cool features Remix has to offer. The remix community is great and offered their help whenever I got stuck. I look forward to building other fullstack apps using Remix and learning more about it.
 
-## Development
+## Other Projects:
 
-The Remix dev server starts your app in development mode, rebuilding assets on file changes. To start the Remix dev server:
+Check out these other projects I've built:
 
-```sh
-npm run dev
-```
+**Contactr:** https://contactr.fly.dev/
 
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
-
-The Netlify CLI builds a production version of your Remix App Server and splits it into Netlify Functions that run locally. This includes any custom Netlify functions you've developed. The Netlify CLI runs all of this in its development mode.
-
-```sh
-netlify dev
-```
-
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
-
-Note: When running the Netlify CLI, file changes will rebuild assets, but you will not see the changes to the page you are on unless you do a browser refresh of the page. Due to how the Netlify CLI builds the Remix App Server, it does not support hot module reloading.
-
-## Deployment
-
-There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-# preview deployment
-netlify deploy --build
-
-# production deployment
-netlify deploy --build --prod
-```
+**InstaBrew:** https://instabrew.fly.dev/
