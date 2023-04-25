@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Link, useActionData } from "@remix-run/react"
+import { Form, Link, useActionData, useNavigation } from "@remix-run/react"
 import { redirect, json } from "@remix-run/node"
 import type { ActionArgs, LoaderArgs } from "@remix-run/node"
 import { requireAuth } from "~/utils.server"
@@ -69,6 +69,8 @@ export default function NewVanPage() {
   const priceRef = React.useRef<HTMLInputElement>(null)
   const descriptionRef = React.useRef<HTMLInputElement>(null)
   const typeRef = React.useRef<HTMLSelectElement>(null)
+
+  const navigation = useNavigation()
 
   React.useEffect(() => {
     if (errors?.name) {
@@ -212,7 +214,9 @@ export default function NewVanPage() {
             type="submit"
             className="rounded font-medium text-sm bg-[#ff8c38] py-2.5 px-5 mr-2 mb-2 text-white hover:bg-[#ff8c38]/80 focus:bg-[#ff8c38] focus:ring-4 focus:ring-[#ff8c38]/40"
           >
-            Create Listing
+            {navigation.state === "submitting"
+              ? "Creating..."
+              : "Create Listing"}
           </button>
         </div>
       </Form>
