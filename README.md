@@ -1,6 +1,6 @@
 # VanLife
 
-A fullstack app for renting travel vans during your next road trip. Discover available vans, Host your own van, or rent a travel van today!
+A fullstack app for renting travel vans on your next road trip. Host your own van, or discover and rent a travel van today!
 
 **Link to project:** http://thevanlife.netlify.app/
 
