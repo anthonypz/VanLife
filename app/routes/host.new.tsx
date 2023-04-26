@@ -35,7 +35,12 @@ export async function action(args: ActionArgs) {
   invariant(typeof description === "string", "description must be a string")
   invariant(typeof imageUrl === "string", "imageUrl must be a string")
   invariant(typeof type === "string", "type must be a string")
-  if (typeof imageUrl !== "string" || imageUrl === "") {
+
+  if (
+    typeof imageUrl !== "string" ||
+    imageUrl === "" ||
+    !/^(ftp|http|https):\/\/[^ "]+$/.test(imageUrl)
+  ) {
     imageUrl =
       "https://res.cloudinary.com/dyt5tdxun/image/upload/v1682360776/travelvan_uihhpb.jpg"
   }
