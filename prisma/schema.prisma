@@ -21,6 +21,6 @@ model Van {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  hostId String
+  // references the Clerk userId
+  hostId    String
 }
