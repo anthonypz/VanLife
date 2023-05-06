@@ -14,11 +14,11 @@ This project was built using Remix, which is an awesome framework that builds up
 
 ## Optimizations
 
-Remix already uses neat optimization techniques that help your app run smoothly such as parallel data fetching, hydration, deferred data loading for slow data requests, and limiting data loading for parts of the page that have changed via client side routing. In addition to that, I used Cloudinary to serve optimized images, which can lower the amount of data sent over the network and significantly speed up your app.
+Remix already uses neat optimization techniques that help your app run smoothly such as parallel data fetching, hydration, deferred data loading for slow network requests, and client side routing. In addition to those built in optimizations, I used Cloudinary to serve optimized images, which lowers the amount of data the user needs to fetch in order to view a page and improves the overall user experience.
 
 ## Lessons Learned:
 
-I've learned a whole lot about how to build client-side nested routes (it's awesome), authentication (it can get complicated), data modeling using Prisma, and many of the cool features Remix has to offer. The remix community is great and offered their help whenever I got stuck. I look forward to building other fullstack apps using Remix and learning more about it.
+I've learned a whole lot about how to build client-side nested routes (it's awesome), authentication, data modeling using Prisma ORM, and working with many of the built-in features Remix has to offer.
 
 ## Other Projects:
 
