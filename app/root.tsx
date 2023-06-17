@@ -5,31 +5,31 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react"
-import Header from "~/components/Header"
-import Footer from "~/components/Footer"
-import stylesheet from "~/tailwind.css"
-import type { LinksFunction, LoaderFunction } from "@remix-run/node"
-import { rootAuthLoader } from "@clerk/remix/ssr.server"
-import { ClerkApp, ClerkCatchBoundary } from "@clerk/remix"
+} from '@remix-run/react';
+import Header from '~/components/Header';
+import Footer from '~/components/Footer';
+import stylesheet from '~/tailwind.css';
+import type { LinksFunction, LoaderFunction } from '@remix-run/node';
+import { rootAuthLoader } from '@clerk/remix/ssr.server';
+import { ClerkApp, ClerkCatchBoundary } from '@clerk/remix';
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
-  { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
-]
+  { rel: 'stylesheet', href: stylesheet },
+  { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' },
+];
 
-export const loader: LoaderFunction = (args) => rootAuthLoader(args)
+export const loader: LoaderFunction = (args) => rootAuthLoader(args);
 
-export const CatchBoundary = ClerkCatchBoundary()
+export const CatchBoundary = ClerkCatchBoundary(rootCatchBoundary);
 
 function App() {
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <meta charSet="utf-8" />
+        <meta charSet='utf-8' />
         <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1"
+          name='viewport'
+          content='width=device-width,initial-scale=1'
         />
         <Meta />
         <Links />
@@ -45,7 +45,17 @@ function App() {
         <Footer />
       </body>
     </html>
-  )
+  );
+}
+
+export function rootCatchBoundary() {
+  return (
+    <div>
+      <h2 className='text-2xl font-extrabold my-4'>
+        Sorry, we couldn't find that page!
+      </h2>
+    </div>
+  );
 }
 
 export function ErrorBoundary({ error }: { error: unknown }) {
@@ -58,15 +68,15 @@ export function ErrorBoundary({ error }: { error: unknown }) {
       </head>
       <body>
         <Header />
-        <div className="text-red-400">
+        <div className='text-red-400'>
           Oh no, something went wrong!
-          {error instanceof Error ? <pre>{error.message}</pre> : ""}
+          {error instanceof Error ? <pre>{error.message}</pre> : ''}
         </div>
         <Scripts />
         <Footer />
       </body>
     </html>
-  )
+  );
 }
 
-export default ClerkApp(App)
+export default ClerkApp(App);
