@@ -1,30 +1,28 @@
-import { Footer } from "flowbite-react"
-import { Link } from "@remix-run/react"
+import { Link } from '@remix-run/react';
 
 export default function FooterComponent() {
+  const footerLinks = [
+    ['About', '/about'],
+    ['Project Source', 'https://github.com/anthonypz/vanLife'],
+    ['My Github', 'https://github.com/anthonypz'],
+  ];
+
   return (
-    <Footer container={true}>
-      <Footer.Copyright
-        className="py-3"
-        by="VANLIFE™"
-        year={2022}
-      />
-      <Footer.LinkGroup className="gap-2">
-        {/* <Footer.Link> */}
-        <li className="last:mr-0 md:mr-6">
+    <footer className='bg-neutral-900 text-neutral-400 font-medium rounded-none p-5 flex flex-col sm:flex-row justify-between'>
+      <div className='p-2'>
+        &#169; {new Date().getFullYear()} VANLIFE&#8482;
+      </div>
+      <div className='flex flex-col'>
+        {footerLinks.map(([text, link]) => (
           <Link
-            className="hover:underline"
-            to="/about"
+            key={text}
+            className='hover:underline p-2'
+            to={link}
           >
-            About
+            {text}
           </Link>
-        </li>
-        {/* </Footer.Link> */}
-        <Footer.Link href="https://github.com/anthonypz/vanLife">
-          Project Source
-        </Footer.Link>
-        <Footer.Link href="https://github.com/anthonypz">My Github</Footer.Link>
-      </Footer.LinkGroup>
-    </Footer>
-  )
+        ))}
+      </div>
+    </footer>
+  );
 }
