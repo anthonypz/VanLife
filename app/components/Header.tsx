@@ -11,11 +11,11 @@ export default function Header() {
   };
 
   const links = ['Host', 'About', 'Vans'];
-  const signedInLinks = ['Sign in', 'Sign up'];
+  const signInLinks = ['Sign in', 'Sign up'];
 
   return (
     <header className='bg-[#fff7ed]'>
-      <nav className='flex items-center justify-between flex-wrap p-4 md:p-6 border-b border-gray-100'>
+      <nav className='flex items-center justify-between flex-wrap p-3'>
         <Link
           className='whitespace-nowrap text-2xl font-black uppercase hover:underline mr-2'
           to='/'
@@ -26,27 +26,27 @@ export default function Header() {
           {links.map((link) => (
             <NavLink
               key={link}
-              className='text-slate-600 font-semibold hover:text-slate-800 hover:underline text-base p-2 hover:bg-gray-100'
-              to={link.toLocaleLowerCase()}
+              className='text-slate-600 font-semibold hover:text-slate-800 hover:underline text-base p-2'
+              to={link.toLowerCase()}
               style={({ isActive }) => (isActive ? activeStyles : undefined)}
             >
               {link}
             </NavLink>
           ))}
           {isSignedIn ? (
-            <div className='p-2 hover:bg-gray-100'>
+            <div className='p-2'>
               <UserButton afterSignOutUrl='/' />
             </div>
           ) : (
             <>
-              {signedInLinks.map((link) => (
+              {signInLinks.map((link) => (
                 <NavLink
                   key={link}
-                  className='text-slate-600 font-semibold hover:text-slate-800 hover:underline text-base p-2 hover:bg-gray-100'
+                  className='py-1.5 px-3 text-base font-semibold text-center text-[#fff7ed] rounded-md bg-neutral-800 hover:bg-black/80 focus:ring-4 focus:ring-black/50 ml-2'
                   to={link.split(' ').join('-').toLowerCase()}
-                  style={({ isActive }) =>
-                    isActive ? activeStyles : undefined
-                  }
+                  // style={({ isActive }) =>
+                  //   isActive ? activeStyles : undefined
+                  // }
                 >
                   {link}
                 </NavLink>

@@ -21,7 +21,7 @@ export default function Dashboard() {
   function renderVanElements(vans: VanElements[]) {
     const hostVansEls = vans?.map((van) => (
       <div
-        className='flex items-center bg-white mb-4 py-4 px-6 border border-orange-200 rounded'
+        className='flex items-center mb-4 py-4 px-6 border border-orange-200 rounded'
         key={van.id}
       >
         <img
@@ -47,7 +47,7 @@ export default function Dashboard() {
         <section>{hostVansEls}</section>
         <Link
           to='new'
-          className='self-end mt-2 text-white bg-[#ff8c38] hover:bg-[#ff8c38]/80 focus:ring-4 focus:outline-none focus:ring-[#ff8c38]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  dark:hover:bg-[#ff8c38]/80 dark:focus:ring-[#ff8c38]/40'
+          className='self-end mt-2 text-white bg-[#f3761b] hover:bg-[#f3761b]/80 focus:ring-4 focus:outline-none focus:ring-[#f3761b]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  dark:hover:bg-[#f3761b]/80 dark:focus:ring-[#f3761b]/40'
         >
           Add a van
           <svg

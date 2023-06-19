@@ -34,7 +34,7 @@ function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className='flex flex-col bg-[#fff7ed]'>
         <Header />
         <main>
           <Outlet />

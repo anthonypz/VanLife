@@ -8,7 +8,7 @@ export default function FooterComponent() {
   ];
 
   return (
-    <footer className='bg-neutral-900 text-neutral-400 font-medium rounded-none p-5 flex flex-col sm:flex-row justify-between'>
+    <footer className='bg-neutral-800 text-[#fff7ed] font-medium rounded-none p-5 flex flex-col sm:flex-row justify-between'>
       <div className='p-2'>
         &#169; {new Date().getFullYear()} VANLIFE&#8482;
       </div>
